@@ -206,7 +206,7 @@ func (iam *Client) AssumeRole(roleARN, externalID string, remoteIP string, sessi
 		}
 		svc := sts.NewFromConfig(cfg)
 		assumeRoleInput := sts.AssumeRoleInput{
-			DurationSeconds: aws.Int32(int32(sessionTTL.Seconds() * 2)),
+			DurationSeconds: aws.Int32(int32(sessionTTL.Seconds() * 4)),
 			RoleArn:         aws.String(roleARN),
 			RoleSessionName: aws.String(sessionName(roleARN, remoteIP)),
 		}
